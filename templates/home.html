@@ -2,10 +2,10 @@
 {% endblock title %} {% block body %}
 <div class="col-12">
   <div
-  class="col-6 mx-auto text-center px-3"
+  class="col-12 col-sm-8 col-lg-6 mx-auto text-center px-3"
   style="background: #E8E8E8;"
   >
-	<img src="{{ image_url }}" alt="UNILAG logo" />
+	<img class="py-3" src="{{ url_for('static', filename='images/UNILAG.png') }}" alt="UNILAG logo" width="200" height="200" />
 	<h5 class="mb-3">UNILAG MIT Phishing Website Detection</h5>
 
 	<div class="mb-4 text-start">
@@ -34,7 +34,7 @@
 					{% endif %} {% endif %}
 				</p>
 			</div>
-			<div class="mt-5 text-center">
+			<div class="mt-5 pb-3 text-center">
 				<button
 				class="btn btn-md btn-success px-4"
 				type="submit"
