@@ -1,0 +1,71 @@
+{% extends 'layout.html'%} {% block title %} UNILAG MIT Phishing Website Detection
+{% endblock title %} {% block body %}
+<div class="col-12">
+  <div
+  class="col-6 mx-auto text-center px-3"
+  style="background: #E8E8E8;"
+  >
+	<img src="{{ image_url }}" alt="UNILAG logo" />
+	<h5 class="mb-3">UNILAG MIT Phishing Website Detection</h5>
+
+	<div class="mb-4 text-start">
+		<form class="mb-3" method="POST" action="{{url_for('getURL')}}">
+			<div class="mb-3">
+				<label for="url" class="form-label">Website URL</label>
+				<input
+				type="text"
+				class="form-control"
+				name="url"
+				placeholder="Please enter a url"
+				value="{{ request.form.url }}"
+				required
+				>
+			</div>
+			<div class="">
+				<p class="">
+					{% if error %} {% if error == 'This is a legitimate URL' %}
+					<span class="text-success">
+						{{ error }}
+					</span>
+					{% else %}
+					<span class="text-danger">
+						{{ error }}
+					</span>
+					{% endif %} {% endif %}
+				</p>
+			</div>
+			<div class="mt-5 text-center">
+				<button
+				class="btn btn-md btn-success px-4"
+				type="submit"
+				value="CheckURL"
+				>Submit</button>
+			</div>
+			<!-- <div class=form-group>
+	
+				<table cellpadding=10 cellspacing=25>
+					<tr>
+						<td><input type=text name="url" placeholder="Enter a url"
+							value="{{request.form.url}}" required size=90 /></td>
+						<td align="center"><input class=btn btn-primary type=submit
+							value="CheckURL" /></td>
+	
+					</tr>
+					<tr>
+						<td align="center">{% if error %} {% if error == 'Legitimate'
+							%}
+							<p style="color: green;">
+								<strong>{{error}}</strong>
+							</p> {% else %}
+							<p style="color: red;">
+								<strong>{{error}}</strong>
+							</p> {% endif %} {% endif %}
+						</td>
+					</tr>
+				</table>
+			</div> -->
+		</form>
+	</div>
+  </div>
+</div>
+{% endblock body %}
